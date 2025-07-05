@@ -1,0 +1,12 @@
+/* Footer specific styles */
+.footer-gradient {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+}

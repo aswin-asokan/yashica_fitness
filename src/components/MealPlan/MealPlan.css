@@ -1,0 +1,211 @@
+.mealplan-section {
+  padding: 5rem 0;
+  background-color: #f9fafb;
+}
+
+.mealplan-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mealplan-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mealplan-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.mealplan-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mealplan-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.mealplan-subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mealplan-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .mealplan-tabs {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.mealplan-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.mealplan-tab-active {
+  background-color: black;
+  color: white;
+}
+
+.mealplan-tab-inactive {
+  background-color: white;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+.mealplan-tab-inactive:hover {
+  color: black;
+}
+
+.mealplan-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .mealplan-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mealplan-feature-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1.5rem;
+}
+
+.mealplan-feature-description {
+  color: #4b5563;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+}
+
+.mealplan-features {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.mealplan-feature-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.mealplan-feature-icon {
+  background-color: black;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.mealplan-feature-text h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 0.5rem;
+}
+
+.mealplan-feature-text p {
+  color: #4b5563;
+}
+
+.mealplan-form-container {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.mealplan-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.mealplan-form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.mealplan-form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+}
+
+.mealplan-form-input:focus {
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.mealplan-form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  min-height: 9rem;
+}
+
+.mealplan-form-button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.mealplan-form-button:hover {
+  background-color: #1f2937;
+}
+
+.mealplan-image-container {
+  position: relative;
+}
+
+.mealplan-image {
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.mealplan-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
