@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Dumbbell, ShoppingCart } from 'lucide-react';
-import { useCart } from '../../context/CartContext';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ShoppingCart } from "lucide-react";
+import { useCart } from "../../context/CartContext";
+import blackLogo from "../../assets/black-bg.png";
+import whiteLogo from "../../assets/white-bg.png";
+import "./Navbar.css"; // ✅ Import the external CSS
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,108 +16,138 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Programs', path: '/programs' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
+    { name: "Programs", path: "/programs" },
+    { name: "Blog", path: "/blog" },
+    { name: "FAQ", path: "/faq" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const cartItemCount = getCartItemCount();
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        location.pathname === "/"
+          ? isScrolled
+            ? "bg-white shadow-lg"
+            : "bg-transparent"
+          : isScrolled
+          ? "bg-white shadow-lg"
+          : "bg-black"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <Dumbbell className={`h-8 w-8 ${isScrolled ? 'text-black' : 'text-white'}`} />
-            <span className={`text-xl font-bold ${isScrolled ? 'text-black' : 'text-white'}`}>
-              Yashica Fitness
-            </span>
-          </Link>
-
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                    location.pathname === item.path
-                      ? isScrolled ? 'text-black border-b-2 border-black' : 'text-white border-b-2 border-white'
-                      : isScrolled ? 'text-gray-700 hover:text-black' : 'text-gray-200 hover:text-white'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Link
-                to="/cart"
-                className={`p-2 rounded-full transition-colors duration-200 relative ${
-                  isScrolled ? 'text-gray-700 hover:text-black' : 'text-gray-200 hover:text-white'
-                }`}
-              >
-                <ShoppingCart className="h-5 w-5" />
-                {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {cartItemCount}
-                  </span>
-                )}
-              </Link>
-            </div>
-          </div>
-
-          <div className="md:hidden">
+        <div className="relative grid grid-cols-3 items-center py-4 gap-y-2">
+          {/* Mobile: Hamburger */}
+          <div className="flex items-center lg:hidden flex-shrink-0">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md ${isScrolled ? 'text-black' : 'text-white'}`}
+              className={`p-2 rounded-md ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <Menu className="h-6 w-6" />
             </button>
           </div>
-        </div>
-      </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex flex-wrap items-center gap-x-4 gap-y-1 justify-start">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                className={`group relative px-3 py-2 text-sm whitespace-nowrap transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'text-black bg-gray-100' 
-                    : 'text-gray-700 hover:text-black hover:bg-gray-50'
+                    ? isScrolled
+                      ? "text-black font-bold"
+                      : "text-white font-bold"
+                    : isScrolled
+                    ? "text-gray-700 hover:text-black"
+                    : "text-gray-200 hover:text-white"
                 }`}
               >
                 {item.name}
+                {location.pathname !== item.path && (
+                  <span className="absolute left-0 -bottom-1 h-0.5 w-full scale-x-0 transform bg-black transition-transform duration-300 group-hover:scale-x-100"></span>
+                )}
               </Link>
             ))}
+          </div>
+
+          {/* Center: Logo */}
+          <div className="flex justify-center items-center">
+            <Link to="/" className="flex items-center">
+              <img
+                src={isScrolled ? whiteLogo : blackLogo}
+                alt="Yashica Fitness Logo"
+                className="h-10 object-contain transition-all duration-300"
+              />
+            </Link>
+          </div>
+
+          {/* Mobile: Cart Icon */}
+          <div className="flex items-center justify-end pr-2 lg:hidden flex-shrink-0">
             <Link
               to="/cart"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50"
+              className={`p-2 rounded-full relative ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
             >
-              <ShoppingCart className="h-5 w-5 mr-2" />
-              Cart
+              <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
-                <span className="ml-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {cartItemCount}
+                </span>
+              )}
+            </Link>
+          </div>
+
+          {/* Desktop: Cart icon */}
+          <div className="hidden lg:flex items-center justify-end">
+            <Link
+              to="/cart"
+              className={`p-2 rounded-full transition-colors duration-200 relative ${
+                isScrolled
+                  ? "text-gray-700 hover:text-black"
+                  : "text-gray-200 hover:text-white"
+              }`}
+            >
+              <ShoppingCart className="h-5 w-5" />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {cartItemCount}
                 </span>
               )}
             </Link>
           </div>
         </div>
-      )}
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`navbar-mobile-menu lg:hidden ${isOpen ? "open" : ""}`}>
+        <div className="navbar-mobile-close">
+          <button onClick={() => setIsOpen(false)}>
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+        <div className="navbar-mobile-nav">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              onClick={() => setIsOpen(false)}
+              className="navbar-mobile-link"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </div>
     </nav>
   );
 };
