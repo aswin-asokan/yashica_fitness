@@ -1,0 +1,159 @@
+.contactContainer {
+  padding-top: 4rem;
+}
+
+.contactHero {
+  padding: 5rem 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.contactHeroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .contactHeroTitle {
+    font-size: 3.75rem;
+  }
+}
+
+.contactHeroSubtitle {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactContent {
+  padding: 5rem 0;
+  background-color: #f9fafb;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contactInfoTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.contactInfoItems {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contactInfoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contactInfoIcon {
+  background-color: black;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.contactInfoContent h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 0.5rem;
+}
+
+.contactInfoContent p {
+  color: #4b5563;
+}
+
+.contactFormContainer {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.contactFormTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.contactForm {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contactFormLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.contactFormInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+
+.contactFormInput:focus {
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.contactFormTextarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  min-height: 9rem;
+  resize: none;
+  transition: all 0.3s;
+}
+
+.contactFormTextarea:focus {
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.contactFormButton {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.contactFormButton:hover {
+  background-color: #1f2937;
+}

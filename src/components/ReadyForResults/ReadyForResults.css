@@ -1,0 +1,153 @@
+
+.results-section {
+  padding: 5rem 0;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+.results-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .results-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .results-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.results-content {
+  text-align: center;
+}
+
+.results-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  transition: all 1s;
+}
+
+@media (min-width: 768px) {
+  .results-title {
+    font-size: 4.5rem;
+  }
+}
+
+.results-title-hidden {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.results-gradient-text {
+  display: block;
+  background-image: linear-gradient(to right, white, #9ca3af);
+  background-clip: text;
+  color: transparent;
+  transition: all 1s 0.3s;
+}
+
+.results-subtitle {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  margin-bottom: 3rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 1s 0.6s;
+}
+
+@media (min-width: 768px) {
+  .results-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.results-subtitle-hidden {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.results-button-container {
+  transition: all 1s 0.9s;
+}
+
+.results-button-container-hidden {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.results-button {
+  background-color: white;
+  color: black;
+  padding: 1.5rem 3rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.results-button:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.results-button-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.results-button:hover .results-button-icon {
+  transform: translateX(0.5rem);
+}
+
+.results-stats {
+  margin-top: 4rem;
+}
+
+.results-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  transition: all 1s 1.2s;
+}
+
+@media (min-width: 768px) {
+  .results-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.results-stats-grid-hidden {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.results-stat-item {
+  text-align: center;
+}
+
+.results-stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.results-stat-label {
+  color: #9ca3af;
+}

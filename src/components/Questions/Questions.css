@@ -1,0 +1,124 @@
+.questions-section {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.questions-container {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .questions-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .questions-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.questions-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.questions-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.questions-subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.questions-accordion {
+  display: grid;
+  gap: 1rem;
+}
+
+.questions-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.questions-item:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.questions-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.questions-button:hover {
+  background-color: #f9fafb;
+}
+
+.questions-question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: black;
+  padding-right: 1rem;
+}
+
+.questions-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.questions-answer {
+  padding: 0 1.5rem 1rem 1.5rem;
+}
+
+.questions-answer-text {
+  color: #4b5563;
+  line-height: 1.625;
+}
+
+.questions-footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.questions-footer-text {
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.questions-contact-button {
+  background-color: black;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.questions-contact-button:hover {
+  background-color: #1f2937;
+}
