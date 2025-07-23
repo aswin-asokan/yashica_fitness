@@ -1,68 +1,101 @@
+/* Container adjustments */
 .programsContainer {
-  padding-top: 4rem;
+  padding-top: 10vw; /* Scale padding-top for mobile */
 }
 
+/* Programs Hero Section */
 .programsHero {
-  padding: 5rem 0;
+  padding: 15vw 0; /* Scale vertical padding for mobile */
   background-color: black;
   color: white;
   text-align: center;
+  overflow: hidden; /* Ensure no overflow from scaling */
+  position: relative; /* Needed for absolute positioning if a future image carousel is added */
 }
 
 .programsHeroTitle {
-  font-size: 3rem;
+  font-size: 8vw; /* Scale font size for mobile */
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4vw; /* Scale margin */
+  line-height: 1.2; /* Slightly tighter line height for compactness */
+  padding: 0 5vw; /* Ensure text has horizontal padding */
 }
 
-@media (min-width: 640px) {
-  .programsHeroTitle {
-    font-size: 3.75rem;
-  }
-}
+/* No specific media queries for programsHeroTitle on mobile, let vw handle it */
+/* @media (min-width: 640px) { ... } */
+/* @media (min-width: 1024px) { ... } */
 
 .programsHeroSubtitle {
-  font-size: 1.25rem;
+  font-size: 4vw; /* Scale font size for mobile */
   color: #d1d5db;
-  max-width: 42rem;
+  max-width: 80vw; /* Adjust max-width for subtitle on mobile */
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 6vw; /* Scale margin */
+  padding: 0 5vw; /* Ensure text has horizontal padding */
 }
 
+/* Programs Content Section */
 .programsContent {
-  padding: 5rem 0;
+  padding: 10vw 0; /* Scale vertical padding */
   background-color: #f9fafb;
 }
 
+/* Programs Grid/Scrollable Area for Mobile */
 .programsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  display: flex; /* Change to flex for horizontal scrolling */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  gap: 5vw; /* Scale gap between cards */
+  padding-bottom: 3vw; /* Add padding for scrollbar */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  flex-wrap: nowrap; /* Prevent cards from wrapping */
+  padding-left: 5vw; /* Padding at the start of the scroll view */
+  padding-right: 5vw; /* Padding at the end of the scroll view */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.programsGrid::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 768px) {
   .programsGrid {
+    display: grid; /* Revert to grid for tablets */
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* Revert to fixed gap */
+    overflow-x: hidden; /* Hide horizontal scroll on larger screens */
+    padding-bottom: 0; /* Remove scrollbar padding */
+    flex-wrap: wrap; /* Allow wrapping */
+    padding-left: 1.5rem; /* Revert padding for tablet grid */
+    padding-right: 1.5rem; /* Revert padding for tablet grid */
   }
 }
 
 @media (min-width: 1024px) {
   .programsGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    padding-left: 2rem; /* Revert padding for desktop grid */
+    padding-right: 2rem; /* Revert padding for desktop grid */
   }
 }
 
+/* Program Card Styling */
 .programCard {
   background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 3vw; /* Scale border-radius */
+  box-shadow: 0 1.5vw 2.5vw -0.5vw rgba(0, 0, 0, 0.1); /* Scale box-shadow */
   overflow: hidden;
   transition: all 0.3s;
+  min-width: 70vw; /* Ensure cards have a scaled minimum width for mobile scroll */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  max-width: 80vw; /* Optional: control max width on larger mobile screens */
 }
 
 .programCard:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  transform: scale(1.05);
+  box-shadow: 0 4vw 5vw -1vw rgba(0, 0, 0, 0.1); /* Scale hover shadow */
+  transform: scale(1.03); /* Slightly reduced scale for mobile responsiveness */
 }
 
 .programImageContainer {
@@ -71,150 +104,347 @@
 
 .programImage {
   width: 100%;
-  height: 12rem;
+  height: 40vw; /* Scale image height for mobile */
   object-fit: cover;
 }
 
 .programPrice {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 3vw; /* Scale position */
+  right: 3vw; /* Scale position */
   background-color: black;
   color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
+  padding: 1vw 2.5vw; /* Scale padding */
+  border-radius: 9999px; /* Remains fully rounded */
+  font-size: 3vw; /* Scale font size */
   font-weight: 600;
 }
 
 .programDetails {
-  padding: 1.5rem;
+  padding: 5vw; /* Scale padding */
 }
 
 .programName {
-  font-size: 1.5rem;
+  font-size: 5.5vw; /* Scale font size */
   font-weight: 700;
   color: black;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2vw; /* Scale margin */
+  line-height: 1.2; /* Tighter line height */
 }
 
 .programDescription {
   color: #4b5563;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
+  font-size: 3.8vw; /* Scale font size */
+  line-height: 1.4; /* Tighter line height */
 }
 
 .programMeta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
 }
 
 .programMetaGroup {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-size: 0.875rem;
+  gap: 3vw; /* Scale gap */
+  font-size: 3.5vw; /* Scale font size */
   color: #6b7280;
 }
 
 .programMetaItem {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 1vw; /* Scale gap */
 }
+/* Ensure lucide icons scale with text */
+.programMetaItem svg {
+  width: 4vw;
+  height: 4vw;
+}
+
 
 .programRating {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 1vw; /* Scale gap */
   font-weight: 600;
+  font-size: 3.5vw; /* Scale font size */
 }
 
 .programRatingIcon {
   color: #f59e0b;
   fill: currentColor;
+  width: 4vw; /* Scale icon size */
+  height: 4vw; /* Scale icon size */
 }
 
 .programParticipants {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
+  gap: 1vw; /* Scale gap */
+  font-size: 3.5vw; /* Scale font size */
   color: #6b7280;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
+}
+/* Ensure lucide icons scale with text */
+.programParticipants svg {
+  width: 4vw;
+  height: 4vw;
 }
 
 .programFeatures {
   display: grid;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 2vw; /* Scale gap */
+  margin-bottom: 4vw; /* Scale margin */
 }
 
 .programFeature {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
+  gap: 2vw; /* Scale gap */
+  font-size: 3.5vw; /* Scale font size */
   color: #374151;
 }
-
+/* Ensure lucide icons scale with text */
 .programFeatureIcon {
   color: #10b981;
   flex-shrink: 0;
+  width: 3.5vw;
+  height: 3.5vw;
 }
 
 .programButton {
   width: 100%;
   background-color: black;
   color: white;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
+  padding: 3vw; /* Scale padding */
+  border-radius: 2vw; /* Scale border-radius */
   font-weight: 600;
   transition: background-color 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 2vw; /* Scale gap */
+  font-size: 4vw; /* Scale font size */
 }
 
 .programButton:hover {
   background-color: #1f2937;
 }
+/* Ensure lucide icons scale with text */
+.programButton svg {
+  width: 4.5vw;
+  height: 4.5vw;
+}
 
+
+/* Programs CTA Section */
 .programsCta {
-  padding: 5rem 0;
+  padding: 10vw 0; /* Scale vertical padding */
   background-color: white;
   text-align: center;
 }
 
 .programsCtaTitle {
-  font-size: 1.875rem;
+  font-size: 6vw; /* Scale font size */
   font-weight: 700;
   color: black;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4vw; /* Scale margin */
+  padding: 0 5vw; /* Add horizontal padding for text */
 }
 
 .programsCtaText {
   color: #4b5563;
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-  max-width: 48rem;
+  font-size: 4vw; /* Scale font size */
+  margin-bottom: 6vw; /* Scale margin */
+  max-width: 80vw; /* Adjust max-width for mobile */
   margin-left: auto;
   margin-right: auto;
+  padding: 0 5vw; /* Add horizontal padding for text */
 }
 
 .programsCtaButton {
   background-color: black;
   color: white;
-  padding: 1rem 2rem;
-  border-radius: 9999px;
+  padding: 3.5vw 7vw; /* Scale padding */
+  border-radius: 9999px; /* Remains fully rounded */
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 4.2vw; /* Scale font size */
   transition: background-color 0.3s;
   display: inline-block;
 }
 
 .programsCtaButton:hover {
   background-color: #1f2937;
+}
+
+/* --- Media Queries for Desktop / Larger Screens - Revert to fixed units --- */
+@media (min-width: 640px) {
+  .programsContainer {
+    padding-top: 4rem; /* Revert padding-top */
+  }
+  .programsHeroTitle {
+    font-size: 3.75rem; /* Revert to original tablet size */
+    margin-bottom: 1.5rem; /* Revert margin */
+    padding: 0; /* Remove horizontal padding */
+  }
+  .programsHeroSubtitle {
+    font-size: 1.5rem; /* Revert to original tablet size */
+    margin-bottom: 2rem; /* Revert margin */
+    max-width: 42rem; /* Revert max-width */
+    padding: 0; /* Remove horizontal padding */
+  }
+  .programsButton {
+    padding: 1rem 2rem; /* Revert fixed padding */
+    font-size: 1.125rem; /* Revert fixed font size */
+    gap: 0.5rem; /* Revert fixed gap */
+  }
+  .programsButton svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .programsCtaTitle {
+    font-size: 1.875rem; /* Revert fixed font size */
+    margin-bottom: 1.5rem; /* Revert fixed margin */
+    padding: 0; /* Remove horizontal padding */
+  }
+  .programsCtaText {
+    font-size: 1.125rem; /* Revert fixed font size */
+    margin-bottom: 2rem; /* Revert fixed margin */
+    max-width: 48rem; /* Revert fixed max-width */
+    padding: 0; /* Remove horizontal padding */
+  }
+  .programsCtaButton {
+    padding: 1rem 2rem; /* Revert fixed padding */
+    font-size: 1.125rem; /* Revert fixed font size */
+  }
+}
+
+@media (min-width: 768px) {
+  .programsHero {
+    padding: 5rem 0; /* Revert vertical padding */
+  }
+  .programsContent {
+    padding: 5rem 0; /* Revert vertical padding */
+  }
+  .programsCta {
+    padding: 5rem 0; /* Revert vertical padding */
+  }
+
+  .programCard {
+    border-radius: 1rem; /* Revert border-radius */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Revert box-shadow */
+    min-width: auto; /* Remove min-width for grid */
+    max-width: none; /* Remove max-width for grid */
+  }
+
+  .programCard:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); /* Revert hover shadow */
+    transform: scale(1.05); /* Revert hover scale */
+  }
+
+  .programImage {
+    height: 12rem; /* Revert image height */
+  }
+
+  .programPrice {
+    top: 1rem; /* Revert position */
+    right: 1rem; /* Revert position */
+    padding: 0.25rem 0.75rem; /* Revert padding */
+    font-size: 0.875rem; /* Revert font size */
+  }
+
+  .programDetails {
+    padding: 1.5rem; /* Revert padding */
+  }
+
+  .programName {
+    font-size: 1.5rem; /* Revert font size */
+    margin-bottom: 0.5rem; /* Revert margin */
+    line-height: initial; /* Revert line height */
+  }
+
+  .programDescription {
+    margin-bottom: 1rem; /* Revert margin */
+    font-size: initial; /* Revert font size */
+    line-height: initial; /* Revert line height */
+  }
+
+  .programMeta {
+    margin-bottom: 1rem; /* Revert margin */
+  }
+
+  .programMetaGroup {
+    gap: 1rem; /* Revert gap */
+    font-size: 0.875rem; /* Revert font size */
+  }
+
+  .programMetaItem {
+    gap: 0.25rem; /* Revert gap */
+  }
+
+  .programMetaItem svg {
+    width: 1rem; /* Revert icon size */
+    height: 1rem; /* Revert icon size */
+  }
+
+  .programRating {
+    gap: 0.25rem; /* Revert gap */
+    font-size: 0.875rem; /* Revert font size */
+  }
+
+  .programRatingIcon {
+    width: 1rem; /* Revert icon size */
+    height: 1rem; /* Revert icon size */
+  }
+
+  .programParticipants {
+    gap: 0.25rem; /* Revert gap */
+    font-size: 0.875rem; /* Revert font size */
+    margin-bottom: 1rem; /* Revert margin */
+  }
+
+  .programParticipants svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .programFeatures {
+    gap: 0.5rem; /* Revert gap */
+    margin-bottom: 1.5rem; /* Revert margin */
+  }
+
+  .programFeature {
+    gap: 0.5rem; /* Revert gap */
+    font-size: 0.875rem; /* Revert font size */
+  }
+
+  .programFeatureIcon {
+    width: 1rem; /* Revert icon size */
+    height: 1rem; /* Revert icon size */
+  }
+
+  .programButton {
+    padding: 0.75rem; /* Revert padding */
+    border-radius: 0.5rem; /* Revert border-radius */
+    font-size: initial; /* Revert font size */
+    gap: 0.5rem; /* Revert gap */
+  }
+  .programButton svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Revert container padding for full desktop */
+  .programsContainer {
+    padding-top: 4rem;
+  }
+  .programsHeroTitle {
+    font-size: 4.5rem; /* Revert to original desktop size */
+  }
 }

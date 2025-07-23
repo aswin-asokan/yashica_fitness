@@ -1,70 +1,59 @@
 .questions-section {
-  padding: 5rem 0;
+  padding: 10vw 0; /* Scale padding with viewport width */
   background-color: white;
 }
 
 .questions-container {
-  max-width: 56rem;
+  max-width: 56rem; /* Keep max-width for desktop */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 5vw; /* Scale horizontal padding */
+  padding-right: 5vw; /* Scale horizontal padding */
 }
 
-@media (min-width: 640px) {
-  .questions-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-@media (min-width: 1024px) {
-  .questions-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
+/* No specific media queries for container padding on mobile, let vw handle it */
+/* @media (min-width: 640px) { ... } */
+/* @media (min-width: 1024px) { ... } */
 
 .questions-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 8vw; /* Scale margin */
 }
 
 .questions-title {
-  font-size: 2.25rem;
+  font-size: 7vw; /* Scale font size */
   font-weight: 700;
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
 }
 
 .questions-subtitle {
-  font-size: 1.25rem;
+  font-size: 4vw; /* Scale font size */
   color: #4b5563;
-  max-width: 42rem;
+  max-width: 80vw; /* Adjust max-width for subtitle on mobile */
   margin-left: auto;
   margin-right: auto;
 }
 
-
-
 .questions-accordion {
   display: grid;
-  gap: 1rem;
+  gap: 3vw; /* Scale gap between accordion items */
 }
 
 .questions-item {
   border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  border-radius: 2vw; /* Scale border-radius */
   overflow: hidden;
   transition: box-shadow 0.3s;
 }
 
 .questions-item:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1.5vw 2.5vw -0.5vw rgba(0, 0, 0, 0.1); /* Scale box-shadow */
 }
 
 .questions-button {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 4vw 5vw; /* Scale padding */
   text-align: left;
   display: flex;
   justify-content: space-between;
@@ -78,47 +67,133 @@
 }
 
 .questions-question {
-  font-size: 1.125rem;
+  font-size: 4.5vw; /* Scale font size */
   font-weight: 600;
   color: black;
-  padding-right: 1rem;
+  padding-right: 3vw; /* Scale padding-right for icon space */
 }
 
 .questions-icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 4.5vw; /* Scale icon size */
+  width: 4.5vw; /* Scale icon size */
   color: #6b7280;
   flex-shrink: 0;
 }
 
 .questions-answer {
-  padding: 0 1.5rem 1rem 1.5rem;
+  padding: 0 5vw 4vw 5vw; /* Scale padding (top is 0, others scaled) */
 }
 
 .questions-answer-text {
   color: #4b5563;
-  line-height: 1.625;
+  line-height: 1.625; /* Keep line height for readability */
+  font-size: 3.8vw; /* Scale font size */
 }
 
 .questions-footer {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 6vw; /* Scale margin */
 }
 
 .questions-footer-text {
   color: #4b5563;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
+  font-size: 3.8vw; /* Scale font size */
 }
 
 .questions-contact-button {
   background-color: black;
   color: white;
-  padding: 0.75rem 2rem;
-  border-radius: 9999px;
+  padding: 3vw 6vw; /* Scale padding */
+  border-radius: 9999px; /* Remains fully rounded */
   font-weight: 600;
+  font-size: 4vw; /* Scale font size */
   transition: background-color 0.3s;
 }
 
 .questions-contact-button:hover {
   background-color: #1f2937;
+}
+
+/* --- Media Queries for Desktop / Larger Screens - Revert to fixed units --- */
+@media (min-width: 640px) {
+  .questions-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  /* For tablets, adjust some elements to be slightly larger than phone but smaller than full desktop */
+  .questions-title {
+    font-size: 2.25rem; /* Revert to original desktop size */
+  }
+
+  .questions-subtitle {
+    font-size: 1.25rem; /* Revert to original desktop size */
+    max-width: 42rem;
+  }
+
+  .questions-accordion {
+    gap: 1rem; /* Revert to original desktop gap */
+  }
+
+  .questions-item {
+    border-radius: 0.5rem; /* Revert border-radius */
+  }
+
+  .questions-item:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Revert box-shadow */
+  }
+
+  .questions-button {
+    padding: 1rem 1.5rem; /* Revert padding */
+  }
+
+  .questions-question {
+    font-size: 1.125rem; /* Revert font size */
+    padding-right: 1rem; /* Revert padding */
+  }
+
+  .questions-icon {
+    height: 1.25rem; /* Revert icon size */
+    width: 1.25rem; /* Revert icon size */
+  }
+
+  .questions-answer {
+    padding: 0 1.5rem 1rem 1.5rem; /* Revert padding */
+  }
+
+  .questions-answer-text {
+    font-size: initial; /* Revert to default browser font size or inherited */
+  }
+
+  .questions-footer-text {
+    font-size: initial; /* Revert to default browser font size or inherited */
+  }
+
+  .questions-contact-button {
+    padding: 0.75rem 2rem;
+    font-size: initial; /* Revert to default browser font size or inherited */
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .questions-section {
+    padding: 5rem 0;
+  }
+  .questions-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .questions-header {
+    margin-bottom: 4rem;
+  }
+  /* Title and Subtitle are already handled by 768px breakpoint */
+
+  .questions-footer {
+    margin-top: 3rem;
+  }
 }
