@@ -20,7 +20,7 @@ const Blog = () => {
     },
     {
       id: 2,
-      title: 'The Complete Guide to Pre and Post Workout Nutrition',
+      title: 'The Complete Guide to Post Workout Nutrition',
       excerpt: 'Learn what to eat before and after your workouts to maximize performance and recovery.',
       image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
       author: 'Nutrition Expert',

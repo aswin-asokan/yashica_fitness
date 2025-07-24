@@ -1,53 +1,53 @@
-
-
 .approach-section {
-  padding: 5rem 0;
+  padding: 10vw 0; /* Scale padding with viewport width */
   background-color: white;
 }
 
 .approach-container {
-  max-width: 80rem;
+  max-width: 80rem; /* Keep max-width for desktop */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 5vw; /* Scale horizontal padding */
+  padding-right: 5vw; /* Scale horizontal padding */
 }
 
 .approach-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 8vw; /* Scale margin */
 }
 
 .approach-title {
-  font-size: 2.25rem;
+  font-size: 7vw; /* Scale font size */
   font-weight: 700;
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
 }
 
 .approach-subtitle {
-  font-size: 1.25rem;
+  font-size: 4vw; /* Scale font size */
   color: #4b5563;
-  max-width: 42rem;
+  max-width: 42rem; /* Keep max-width for desktop */
   margin-left: auto;
   margin-right: auto;
 }
 
 .approach-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr); /* Stays 1 column on smallest screens */
+  gap: 6vw; /* Scale gap */
 }
 
 @media (min-width: 768px) {
   .approach-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    gap: 4vw; /* Slightly smaller gap on tablets */
   }
 }
 
 @media (min-width: 1024px) {
   .approach-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+    gap: 2rem; /* Revert to fixed gap on desktop */
   }
 }
 
@@ -62,61 +62,76 @@
 
 .approach-icon-container {
   background-color: #f9fafb;
-  border-radius: 9999px;
-  width: 6rem;
-  height: 6rem;
+  border-radius: 9999px; /* Remains fully rounded */
+  width: 18vw; /* Scale width */
+  height: 18vw; /* Scale height */
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4vw; /* Scale margin */
   transition: all 0.3s;
 }
+
+/* Ensure icons from lucide-react scale down */
+.approach-icon-container svg {
+  width: 9vw; /* Scale icon width */
+  height: 9vw; /* Scale icon height */
+  color: black; /* Default icon color */
+}
+
 
 .approach-card:hover .approach-icon-container {
   background-color: black;
   color: white;
 }
 
+.approach-card:hover .approach-icon-container svg {
+  color: white; /* Change icon color on hover */
+}
+
 .approach-card-title {
-  font-size: 1.25rem;
+  font-size: 4.5vw; /* Scale font size */
   font-weight: 700;
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
 }
 
 .approach-card-description {
   color: #4b5563;
-  line-height: 1.625;
+  line-height: 1.625; /* Keep line height consistent */
+  font-size: 3.5vw; /* Scale font size */
 }
 
 .approach-cta {
-  margin-top: 4rem;
+  margin-top: 8vw; /* Scale margin */
   background-color: black;
-  border-radius: 1.5rem;
-  padding: 2rem;
+  border-radius: 4vw; /* Scale border-radius */
+  padding: 6vw; /* Scale padding */
   color: white;
   text-align: center;
 }
 
 @media (min-width: 768px) {
   .approach-cta {
-    padding: 3rem;
+    padding: 3rem; /* Revert to fixed padding on larger screens */
+    margin-top: 4rem; /* Revert to fixed margin on larger screens */
+    border-radius: 1.5rem; /* Revert border-radius on larger screens */
   }
 }
 
 .approach-cta-title {
-  font-size: 1.875rem;
+  font-size: 6vw; /* Scale font size */
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw; /* Scale margin */
 }
 
 .approach-cta-subtitle {
-  font-size: 1.25rem;
+  font-size: 4vw; /* Scale font size */
   color: #d1d5db;
-  margin-bottom: 2rem;
-  max-width: 42rem;
+  margin-bottom: 6vw; /* Scale margin */
+  max-width: 42rem; /* Keep max-width for desktop */
   margin-left: auto;
   margin-right: auto;
 }
@@ -124,13 +139,73 @@
 .approach-button {
   background-color: white;
   color: black;
-  padding: 1rem 2rem;
-  border-radius: 9999px;
+  padding: 3vw 6vw; /* Scale padding */
+  border-radius: 9999px; /* Remains fully rounded */
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 4vw; /* Scale font size */
   transition: background-color 0.3s;
 }
 
 .approach-button:hover {
   background-color: #f3f4f6;
+}
+
+/* Desktop Styles - Revert to fixed units */
+@media (min-width: 1024px) {
+  .approach-section {
+    padding: 5rem 0;
+  }
+
+  .approach-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .approach-header {
+    margin-bottom: 4rem;
+  }
+
+  .approach-title {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .approach-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .approach-icon-container {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .approach-icon-container svg {
+    width: 3rem; /* Original icon size */
+    height: 3rem; /* Original icon size */
+  }
+
+  .approach-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .approach-card-description {
+    font-size: initial; /* Revert to default browser font size or whatever it inherited */
+  }
+
+  .approach-cta-title {
+    font-size: 1.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .approach-cta-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .approach-button {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
 }
