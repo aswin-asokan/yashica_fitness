@@ -4,16 +4,33 @@ import { Check } from "lucide-react";
 import styles from "./ProgramDetails.module.css";
 import { newPrograms } from "../data/programs";
 import Questions from "../Questions/Questions";
+import { useCart } from "../../context/CartContext";
 
 const ProgramDetails = () => {
   const { id } = useParams();
-  const program = newPrograms.find((p) => p.id === Number(id));
+  const { addToCart } = useCart(); // ✅ HOOK INSIDE COMPONENT
 
+  const program = newPrograms.find((p) => p.id === Number(id));
   const [selectedPackageIndex, setSelectedPackageIndex] = useState(0);
 
   if (!program) return <div>Program not found</div>;
 
   const selectedPackage = program.packages[selectedPackageIndex];
+
+  const handleAddToCart = () => {
+    if (!program || !selectedPackage) return;
+
+    addToCart({
+      id: program.id,
+      name: program.title,
+      price: Number(selectedPackage.price),
+      image: program.image,
+      description: program.features.card.join(", "),
+      duration: selectedPackage.duration,
+      level: "All Levels",
+      quantity: 1,
+    });
+  };
 
   return (
     <>
@@ -89,7 +106,9 @@ const ProgramDetails = () => {
             </p>
 
             <div className={styles.buttonGroup}>
-              <button className={styles.addToCart}>Add to Cart</button>
+              <button className={styles.addToCart} onClick={handleAddToCart}>
+                Add to Cart
+              </button>
               <button className={styles.buyNow}>Buy it Now</button>
             </div>
           </div>
