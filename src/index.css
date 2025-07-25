@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply font-spaceMono;
+}
+html, body {
+  overflow-x: hidden;
+}

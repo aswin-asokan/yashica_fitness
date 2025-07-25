@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { ChevronDown, ChevronUp, Search } from 'lucide-react';
-import BackButton from '../../components/BackButton/BackButton';
-import styles from './FAQ.module.css';
+import { useState } from "react";
+import { ChevronDown, ChevronUp, Search } from "lucide-react";
+import styles from "./FAQ.module.css";
 
 interface FAQItem {
   question: string;
@@ -15,7 +14,7 @@ interface FAQCategory {
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const faqs: FAQCategory[] = [
     // ... (keep your existing faqs array exactly the same)
@@ -26,24 +25,25 @@ const FAQ = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const filteredFaqs = faqs.map(category => ({
-    ...category,
-    questions: category.questions.filter(
-      faq => 
-        faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-  })).filter(category => category.questions.length > 0);
+  const filteredFaqs = faqs
+    .map((category) => ({
+      ...category,
+      questions: category.questions.filter(
+        (faq) =>
+          faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    }))
+    .filter((category) => category.questions.length > 0);
 
   return (
     <div className={styles.faqContainer}>
-      <BackButton />
-      
       <section className={styles.faqHero}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className={styles.faqHeroTitle}>Frequently Asked Questions</h1>
           <p className={styles.faqHeroSubtitle}>
-            Find answers to common questions about our programs, training, and support.
+            Find answers to common questions about our programs, training, and
+            support.
           </p>
         </div>
       </section>
@@ -70,12 +70,11 @@ const FAQ = () => {
                 {category.questions.map((faq, questionIndex) => {
                   const index = categoryIndex * 1000 + questionIndex;
                   return (
-                    <div
-                      key={questionIndex}
-                      className={styles.faqItem}
-                    >
+                    <div key={questionIndex} className={styles.faqItem}>
                       <button
-                        onClick={() => toggleAccordion(categoryIndex, questionIndex)}
+                        onClick={() =>
+                          toggleAccordion(categoryIndex, questionIndex)
+                        }
                         className={styles.faqQuestionButton}
                       >
                         <h3 className={styles.faqQuestionText}>
@@ -87,12 +86,10 @@ const FAQ = () => {
                           <ChevronDown className={styles.faqQuestionIcon} />
                         )}
                       </button>
-                      
+
                       {activeIndex === index && (
                         <div className={styles.faqAnswer}>
-                          <p className={styles.faqAnswerText}>
-                            {faq.answer}
-                          </p>
+                          <p className={styles.faqAnswerText}>{faq.answer}</p>
                         </div>
                       )}
                     </div>
@@ -108,7 +105,7 @@ const FAQ = () => {
                 No questions found matching your search.
               </p>
               <button
-                onClick={() => setSearchTerm('')}
+                onClick={() => setSearchTerm("")}
                 className={styles.faqClearSearch}
               >
                 Clear search
@@ -117,15 +114,12 @@ const FAQ = () => {
           )}
 
           <div className={styles.faqSupport}>
-            <h3 className={styles.faqSupportTitle}>
-              Still have questions?
-            </h3>
+            <h3 className={styles.faqSupportTitle}>Still have questions?</h3>
             <p className={styles.faqSupportText}>
-              Can't find what you're looking for? Our support team is here to help!
+              Can't find what you're looking for? Our support team is here to
+              help!
             </p>
-            <button className={styles.faqSupportButton}>
-              Contact Support
-            </button>
+            <button className={styles.faqSupportButton}>Contact Support</button>
           </div>
         </div>
       </section>

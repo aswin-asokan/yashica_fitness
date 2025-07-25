@@ -1,0 +1,7 @@
+.fullDivider {
+  width: 100vw;          /* Full viewport width */
+  height: 1px;           
+  background-color: #e5e5e5; /* Or #1d1d1d if you want dark divider */
+  border: none;
+  margin-top: 2rem;
+}

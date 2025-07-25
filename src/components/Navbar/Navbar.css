@@ -1,5 +1,3 @@
-/* Navbar.css */
-
 .navbar-mobile-menu {
   position: fixed;
   top: 0;
@@ -13,7 +11,13 @@
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
 }
+nav {
+  scrollbar-width: none; /* Firefox */
+}
 
+nav::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
 .navbar-mobile-menu.open {
   transform: translateX(0);
 }

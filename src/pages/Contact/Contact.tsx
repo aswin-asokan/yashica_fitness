@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
-import BackButton from '../../components/BackButton/BackButton';
-import styles from './Contact.module.css';
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import styles from "./Contact.module.css";
 
 interface FormData {
   name: string;
@@ -11,27 +10,27 @@ interface FormData {
 
 const Contact = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   return (
     <div className={styles.contactContainer}>
-      <BackButton />
-      
       <section className={styles.contactHero}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className={styles.contactHeroTitle}>Get in Touch</h1>
@@ -46,7 +45,7 @@ const Contact = () => {
           <div className={styles.contactGrid}>
             <div>
               <h2 className={styles.contactInfoTitle}>Contact Information</h2>
-              
+
               <div className={styles.contactInfoItems}>
                 <div className={styles.contactInfoItem}>
                   <div className={styles.contactInfoIcon}>
@@ -96,7 +95,7 @@ const Contact = () => {
 
             <div className={styles.contactFormContainer}>
               <h2 className={styles.contactFormTitle}>Send us a Message</h2>
-              
+
               <form onSubmit={handleSubmit} className={styles.contactForm}>
                 <div>
                   <label htmlFor="name" className={styles.contactFormLabel}>
@@ -146,10 +145,7 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className={styles.contactFormButton}
-                >
+                <button type="submit" className={styles.contactFormButton}>
                   <Send className="h-5 w-5" />
                   <span>Send Message</span>
                 </button>
