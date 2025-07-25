@@ -8,7 +8,7 @@ import { useCart } from "../../context/CartContext";
 
 const ProgramDetails = () => {
   const { id } = useParams();
-  const { addToCart } = useCart(); // ✅ HOOK INSIDE COMPONENT
+  const { addToCart } = useCart();
 
   const program = newPrograms.find((p) => p.id === Number(id));
   const [selectedPackageIndex, setSelectedPackageIndex] = useState(0);
@@ -20,14 +20,17 @@ const ProgramDetails = () => {
   const handleAddToCart = () => {
     if (!program || !selectedPackage) return;
 
+    const cleanPrice = parseFloat(
+      selectedPackage.price.replace(/Rs\.\s?/, "").replace(/,/g, "")
+    );
+
     addToCart({
       id: program.id,
       name: program.title,
-      price: Number(selectedPackage.price),
+      price: cleanPrice,
       image: program.image,
       description: program.features.card.join(", "),
       duration: selectedPackage.duration,
-      level: "All Levels",
       quantity: 1,
     });
   };

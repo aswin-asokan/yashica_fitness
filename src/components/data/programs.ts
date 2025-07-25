@@ -126,5 +126,47 @@ export const newPrograms = [
     ],
     image: "src/assets/images/Yoichi_Isagi_S2_anime_design_2 (2).png"
   },
+  {
+    id: 4,
+    title: "Women Specialisation Program",
+    features: {
+      card: [
+      "optimise mood",
+      "diet plan (veg/non-veg)",
+      "personalised workout plan",
+      "gut health & issues",
+      "built laser focus",
+      "hair health and regrowth",
+      "better sleep quality",
+      ],
+      details: [
+  "optimise mood",
+  "diet plan (veg/non-veg)",
+  "personalised workout plan (gym & home options)",
+  "increase energy levels",
+  "dietary replacements and additions",
+  "gut health & issues",
+  "supplement guidance & recommendations",
+  "build laser focus",
+  "improve metabolic and reproductive health",
+  "cure acne",
+  "balance testosterone, estrogen & prolactin",
+  "required blood work",
+  "better sleep quality",
+  "anxiety levels",
+  "hair health and regrowth",
+  "menopause & pre-menopause issues",
+  "fix skin problems",
+  "lifestyle changes checklist"
+]
+    },
+    packages: [
+      {
+        duration: "3 MONTHS",
+        price: "Rs. 7,499.00"
+      }
+    ],
+    image: "src/assets/images/pngwing.com (3) (1) (1).png",
+  },
 ];
 

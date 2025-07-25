@@ -26,15 +26,15 @@ const Navbar = () => {
         {/* Top Banner */}
         <div className="w-full bg-[#1d1d1c] text-white text-center text-[11px] py-3 font-bold tracking-wide">
           <div className="inline-flex gap-3">
-            <span>ONE</span>
-            <span>DAY</span>
-            <span>OR</span>
-            <span>DAY</span>
-            <span>ONE</span>
+            <span>MAKE</span>
+            <span>IT</span>
+            <span>HAPPEN</span>
+            <span>START</span>
+            <span>TODAY</span>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-10">
           <div className="relative grid grid-cols-3 items-center py-6 gap-y-2">
             {/* Mobile Hamburger */}
             <div className="flex items-center lg:hidden flex-shrink-0">

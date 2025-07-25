@@ -1,24 +1,37 @@
 .results-marquee-section {
-  background-color: black;
+  background-color: #1d1d1d;
   overflow: hidden;
-  padding: 2rem 0;
+  padding: 2.5rem 0; /* increased space above and below */
 }
 
 .results-marquee {
+  display: flex;
   white-space: nowrap;
   overflow: hidden;
-  display: flex;
   align-items: center;
+  position: relative;
 }
 
 .results-marquee span {
   display: inline-block;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 800;
   color: white;
-  animation: scroll-left 30s linear infinite;
-  word-spacing: 2rem; /* extra spacing between words */
-  padding-left: 100%; /* ensures smooth entry */
+  text-transform: uppercase; /* force all caps */
+  animation: scroll-left 50s linear infinite;
+  word-spacing: 2rem;
+  padding-right: 2rem;
+}
+
+/* Duplicate content for seamless infinite loop */
+.results-marquee::after {
+  content: attr(data-text);
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  padding-left: 2rem;
 }
 
 @keyframes scroll-left {
@@ -27,6 +40,6 @@
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }

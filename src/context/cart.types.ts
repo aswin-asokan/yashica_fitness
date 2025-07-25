@@ -7,20 +7,21 @@ export interface CartItem {
   image: string;
   description: string;
   duration?: string;
-  level?: string;
   quantity: number;
 }
+
 
 export interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
-  removeFromCart: (id: number) => void;
-  updateQuantity: (id: number, quantity: number) => void;
-  incrementItem: (id: number) => void;
-  decrementItem: (id: number) => void;
+  removeFromCart: (id: number, duration: string) => void;
+  updateQuantity: (id: number, duration: string, quantity: number) => void;
+  incrementItem: (id: number, duration: string) => void;
+  decrementItem: (id: number, duration: string) => void;
   getCartTotal: () => number;
   getCartItemCount: () => number;
 }
+
 
 export interface CartProviderProps {
   children: ReactNode;

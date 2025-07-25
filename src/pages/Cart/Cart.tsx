@@ -76,14 +76,26 @@ const CartDrawer = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() => decrementItem(item.id)}
+                      onClick={() => {
+                        if (item.duration) {
+                          decrementItem(item.id, item.duration);
+                        } else {
+                          console.warn("Duration is missing for item", item);
+                        }
+                      }}
                       className="px-2 py-1 border rounded"
                     >
                       <Minus size={16} />
                     </button>
                     <span className="font-medium">{item.quantity}</span>
                     <button
-                      onClick={() => incrementItem(item.id)}
+                      onClick={() => {
+                        if (item.duration) {
+                          incrementItem(item.id, item.duration);
+                        } else {
+                          console.warn("Duration is missing for item", item);
+                        }
+                      }}
                       className="px-2 py-1 border rounded"
                     >
                       <Plus size={16} />
@@ -91,7 +103,13 @@ const CartDrawer = ({
                   </div>
 
                   <button
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => {
+                      if (item.duration) {
+                        removeFromCart(item.id, item.duration);
+                      } else {
+                        console.warn("Duration is missing for item", item);
+                      }
+                    }}
                     className="text-red-500 hover:text-red-600"
                   >
                     <Trash2 size={18} />

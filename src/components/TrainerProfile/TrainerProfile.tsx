@@ -1,33 +1,39 @@
-import './TrainerProfile.css';
+import "./TrainerProfile.css";
 
 const TrainerProfile = () => {
   return (
     <section className="trainer-section">
       <div className="trainer-box">
         <h2 className="trainer-heading">THE APPROACH</h2>
-        <p>I started lifting when I was 16 and now I’m 27.</p>
-        <p>That’s 11 years of experience living this lifestyle.</p>
+        <p>I started my fitness journey at the age of 16,</p>
         <p>
-          In 2014 I began working online and have now helped over <strong>10,000+</strong> men and women change their lives.
+          I had already been exercising and developing an understanding of body
+          movement through my passion for dancing since the age of 10.
         </p>
         <p>
-          After years of experience, one thing I can tell you is each person is unique, what works for others, might not work for you.
+          As I progressed, I realized I needed to build strength to reach my
+          full potential in the mastery of my body and my passions. The road
+          wasn’t easy—I spent years learning, failing, and focusing on muscle
+          gain and fat loss. But with each challenge, I gained more insight.
         </p>
         <p>
-          Most programs are one size fits all, and the reality is we are <strong>ALL</strong> different. We need tailored routines specific to us and our needs.
+          Over the years, I’ve lost and rebuilt my body multiple times, whether
+          it was for fat loss or muscle gain. After living this lifestyle for 8
+          years it has given me a deep understanding of the process.
         </p>
         <p>
-          When I design your program, I craft it precise, enjoyable and tailored to you, your goals, likes and dislikes and fitness orientation which means you’re guaranteed to get results.
+          I know that everyone’s journey is unique, which is why I create custom
+          programs that align with your specific goals, preferences, and needs.
         </p>
         <p>
-          I give you all the tools you need to optimise your health & body composition towards long term results and an education on how to do things the right way from here on out.
+          I’ll guide you with the knowledge I’ve gained to help you save time,
+          make the journey simpler, and achieve lasting results—faster and more
+          effectively than if you were to navigate this path alone.
         </p>
-        <p>No more quick fixes, no more gimmicks, no more frustration, just results.</p>
-
         <div className="trainer-cta">
-          <p>NOW DECIDE</p>
-          <p><strong>ONE DAY OR DAY ONE?</strong></p>
-          <a href="#" className="trainer-link">DAY ONE</a>
+          <a href="/programs" className="trainer-link">
+            START YOUR JOURNEY
+          </a>
         </div>
       </div>
     </section>

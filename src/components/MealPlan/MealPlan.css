@@ -1,33 +1,33 @@
 /* ---------- Layout ---------- */
 .mealplan-section {
-  padding: 3vw 0; /* Scaled padding */
+  padding: 8vw 0; /* Increased padding above and below the section */
   background-color: #f9fafb;
 }
 
 .mealplan-container {
-  max-width: 80rem; /* Keep max-width for desktop */
+  max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 3vw; /* Scaled horizontal padding */
+  padding: 0 3vw;
 }
 
 /* ---------- Header ---------- */
 .mealplan-header {
   text-align: center;
-  margin-bottom: 5vw; /* Scaled margin */
+  margin-bottom: 5vw;
 }
 
 .mealplan-title {
-  font-size: 6vw; /* Scaled font size */
+  font-size: 6vw;
   font-weight: 700;
   color: black;
-  margin-bottom: 2vw; /* Scaled margin */
+  margin-bottom: 2vw;
 }
 
 .mealplan-subtitle {
-  font-size: 3.5vw; /* Scaled font size */
+  font-size: 3.5vw;
   color: #4b5563;
-  max-width: 42rem; /* Keep max-width for desktop */
+  max-width: 42rem;
   margin: 0 auto;
 }
 
@@ -35,35 +35,35 @@
 .mealplan-tabs-horizontal {
   display: flex;
   justify-content: center;
-  gap: 3vw; /* Scaled gap */
-  margin-top: 4vw; /* Scaled margin */
+  gap: 3vw;
+  margin-top: 4vw;
   border-top: 1px solid #e5e7eb;
-  padding-top: 3vw; /* Scaled padding */
-  margin-bottom: 5vw; /* Scaled margin */
-  flex-wrap: nowrap; /* Prevent wrapping for mobile for a single row */
-  overflow-x: auto; /* Enable horizontal scrolling for tabs */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  scrollbar-width: none; /* Hide scrollbar Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
-  padding-bottom: 1vw; /* Padding for potential scrollbar */
+  padding-top: 3vw;
+  margin-bottom: 5vw;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 1vw;
 }
 
 .mealplan-tabs-horizontal::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome/Safari */
+  display: none;
 }
 
 .tab-item {
   display: flex;
   align-items: center;
-  gap: 1.5vw; /* Scaled gap */
+  gap: 1.5vw;
   font-weight: 600;
-  padding: 2vw 3vw; /* Scaled padding */
+  padding: 2vw 3vw;
   cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: all 0.3s;
   color: #4b5563;
-  font-size: 3vw; /* Scaled font size */
-  flex-shrink: 0; /* Prevent tabs from shrinking */
+  font-size: 3vw;
+  flex-shrink: 0;
 }
 
 .tab-item.active {
@@ -71,21 +71,16 @@
   color: black;
 }
 
-/* ---------- Shared Overlay ---------- */
-.mealplan-two-column {
-  display: flex;
-  flex-direction: column;
-}
-
-/* ---------- Mobile View ---------- */
+/* ---------- Mobile Overlay (Default - visible on small devices) ---------- */
 .mealplan-mobile-overlay {
   position: relative;
-  min-height: 80vw; /* Scaled min-height based on viewport width */
+  min-height: 100vw; /* Increased height for smaller devices */
   background-size: cover;
   background-position: center;
-  border-radius: 2vw; /* Scaled border-radius */
+  border-radius: 0; /* Made rectangular */
   overflow: hidden;
-  margin-bottom: 5vw; /* Scaled margin */
+  margin-bottom: 5vw;
+  display: block; /* Ensure it's displayed by default */
 }
 
 .mealplan-overlay-content {
@@ -94,298 +89,208 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.65); /* Slightly darker overlay for better contrast on smaller text */
+  background: rgba(0, 0, 0, 0.65); /* Dark overlay */
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  padding: 4vw; /* Scaled padding */
-  text-align: center;
+  padding: 4vw;
+  text-align: left;
+  flex-direction: column;
 }
 
 .mealplan-overlay-content > div {
-  max-width: 600px; /* Keep max-width for desktop */
+  max-width: 600px; /* Constrain width for better readability */
   width: 100%;
 }
 
 .mealplan-overlay-content h3,
 .mealplan-overlay-content p,
 .mealplan-overlay-content h4 {
-  color: white !important;
+  color: white !important; /* Ensure text is white over the dark overlay */
 }
 
-/* ---------- Desktop View ---------- */
-@media (min-width: 1024px) {
-  .mealplan-section {
-    padding: 3rem 0; /* Revert to fixed padding on desktop */
-  }
-
-  .mealplan-container {
-    padding: 0 2rem; /* Revert to fixed padding on desktop */
-  }
-
-  .mealplan-header {
-    margin-bottom: 2rem; /* Revert to fixed margin */
-  }
-
-  .mealplan-title {
-    font-size: 2rem; /* Revert to fixed font size */
-    margin-bottom: 0.8rem; /* Revert to fixed margin */
-  }
-
-  .mealplan-subtitle {
-    font-size: 1.1rem; /* Revert to fixed font size */
-  }
-
-  .mealplan-tabs-horizontal {
-    gap: 1rem; /* Revert to fixed gap */
-    margin-top: 1.5rem; /* Revert to fixed margin */
-    padding-top: 1rem; /* Revert to fixed padding */
-    margin-bottom: 2rem; /* Revert to fixed margin */
-    flex-wrap: wrap; /* Allow tabs to wrap on desktop */
-    overflow-x: hidden; /* Hide horizontal scroll for tabs on desktop */
-    padding-bottom: 0;
-  }
-
-  .tab-item {
-    gap: 0.4rem; /* Revert to fixed gap */
-    padding: 0.6rem 0.8rem; /* Revert to fixed padding */
-    font-size: 0.9rem; /* Revert to fixed font size */
-  }
-
-  .mealplan-two-column {
-    display: flex;
-    flex-direction: row;
-    height: 550px;
-    border-radius: 1rem;
-    overflow: hidden;
-  }
-
-  .mealplan-mobile-overlay {
-    flex: 1;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    min-height: auto; /* Reset min-height for desktop */
-    border-radius: 1rem; /* Revert border-radius */
-    margin-bottom: 0; /* Remove margin for desktop layout */
-  }
-
-  .mealplan-overlay-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
-    height: 100%;
-    padding: 2rem; /* Revert padding */
-    text-align: left;
-    color: white;
-  }
-
-  .mealplan-overlay-content > div {
-    max-width: 600px;
-    width: 100%;
-  }
-
-  .mealplan-overlay-content h3,
-  .mealplan-overlay-content p,
-  .mealplan-overlay-content h4 {
-    color: white !important;
-  }
-
-  .mealplan-feature-icon {
-    background-color: white;
-    color: black;
-  }
-
-  .mealplan-feature-text p {
-    color: #e5e7eb;
-  }
-
-  .mealplan-form-container {
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-  }
-
-  .mealplan-form-label {
-    color: white;
-  }
-
-  .mealplan-form-input,
-  .mealplan-form-textarea {
-    background-color: white;
-    color: black;
-  }
-
-  .mealplan-form-button {
-    background-color: white;
-    color: black;
-  }
-
-  /* Feature & Form Styling - Desktop Reversion */
-  .mealplan-feature-title {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
-
-  .mealplan-feature-description {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-  }
-
-  .mealplan-features {
-    gap: 1rem;
-  }
-
-  .mealplan-feature-item {
-    gap: 0.8rem;
-  }
-
-  .mealplan-feature-icon {
-    padding: 0.6rem;
-    border-radius: 0.4rem;
-  }
-
-  .mealplan-feature-icon svg {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
-  .mealplan-feature-text h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .mealplan-feature-text p {
-    font-size: 0.85rem;
-  }
-
-  .mealplan-form-container {
-    border-radius: 0.8rem;
-    padding: 1rem;
-  }
-
-  .mealplan-form {
-    gap: 0.8rem;
-  }
-
-  .mealplan-form-label {
-    font-size: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .mealplan-form-input,
-  .mealplan-form-textarea {
-    padding: 0.6rem 0.8rem;
-    border-radius: 0.4rem;
-    font-size: 0.9rem;
-  }
-
-  .mealplan-form-button {
-    padding: 0.6rem;
-    border-radius: 0.4rem;
-    font-size: 0.9rem;
-  }
-}
-
-
-/* ---------- Feature & Form Styling (Mobile Specific) ---------- */
+/* ---------- Features (Mobile) ---------- */
 .mealplan-feature-title {
-  font-size: 5vw; /* Scaled title size */
+  font-size: 5vw;
   font-weight: 700;
-  margin-bottom: 3vw; /* Scaled margin */
+  margin-bottom: 6vw; /* Increased space after title */
+  text-align: left;
 }
 
 .mealplan-feature-description {
-  margin-bottom: 4vw; /* Scaled margin */
-  font-size: 3.2vw; /* Scaled description size */
+  margin-bottom: 4vw;
+  font-size: 3.2vw;
   color: inherit;
 }
 
 .mealplan-features {
   display: grid;
-  gap: 3vw; /* Scaled gap between features */
+  gap: 3vw;
 }
 
 .mealplan-feature-item {
   display: flex;
-  gap: 2.5vw; /* Scaled gap */
+  gap: 2.5vw;
   align-items: flex-start;
 }
 
 .mealplan-feature-icon {
   background-color: white;
   color: black;
-  padding: 2vw; /* Scaled padding */
-  border-radius: 1.5vw; /* Scaled border-radius */
-  flex-shrink: 0; /* Prevent icon container from shrinking */
-}
-/* Ensure icons from lucide-react scale down */
-.mealplan-feature-icon svg {
-  width: 5vw; /* Scaled icon size */
-  height: 5vw; /* Scaled icon size */
+  padding: 2vw;
+  border-radius: 1.5vw;
+  flex-shrink: 0;
 }
 
+.mealplan-feature-icon svg {
+  width: 5vw;
+  height: 5vw;
+}
+
+.mealplan-feature-text {
+  display: flex;
+  flex-direction: column;
+}
 
 .mealplan-feature-text h4 {
-  font-size: 3.8vw; /* Scaled title size */
+  font-size: 3.8vw;
   font-weight: 600;
-  margin-bottom: 1vw; /* Scaled margin */
+  margin-bottom: 1vw;
   color: white;
 }
 
 .mealplan-feature-text p {
   color: #e5e7eb;
-  font-size: 3vw; /* Scaled text size */
+  font-size: 3vw;
 }
 
-/* ---------- Form (Mobile Specific) ---------- */
-.mealplan-form-container {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 2vw; /* Scaled border-radius */
-  padding: 4vw; /* Scaled padding */
-  backdrop-filter: blur(5px);
+/* ---------- Desktop Layout (hidden on mobile) ---------- */
+.mealplan-two-column {
+  display: none; /* Hidden by default on mobile */
 }
 
-.mealplan-form {
-  display: grid;
-  gap: 3vw; /* Scaled gap */
-}
+@media (min-width: 1024px) {
+  .mealplan-section {
+    padding: 6rem 0; /* Increased padding above and below for desktop */
+  }
 
-.mealplan-form-label {
-  display: block;
-  font-size: 3vw; /* Scaled label font size */
-  font-weight: 500;
-  color: white;
-  margin-bottom: 1vw; /* Scaled margin */
-}
+  .mealplan-container {
+    padding: 0 2rem;
+  }
 
-.mealplan-form-input,
-.mealplan-form-textarea {
-  width: 100%;
-  padding: 2.5vw 3vw; /* Scaled padding */
-  border: none;
-  border-radius: 1.5vw; /* Scaled border-radius */
-  background-color: white;
-  color: black;
-  font-size: 3.2vw; /* Scaled input font size */
-}
+  .mealplan-header {
+    margin-bottom: 2rem;
+  }
 
-.mealplan-form-button {
-  width: 100%;
-  background-color: white;
-  color: black;
-  padding: 2.5vw; /* Scaled padding */
-  border-radius: 1.5vw; /* Scaled border-radius */
-  font-weight: 600;
-  transition: background-color 0.3s;
-  font-size: 3.2vw; /* Scaled button font size */
-  white-space: nowrap; /* Keep button text on a single line */
-  /* For single-line button alignment */
-  display: inline-block; /* Essential for containing the button in a single line within a flex/grid item */
-}
+  .mealplan-title {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
 
-.mealplan-form-button:hover {
-  background-color: #e5e7eb;
+  .mealplan-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .mealplan-tabs-horizontal {
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    padding-bottom: 0;
+  }
+
+  .tab-item {
+    gap: 0.4rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* Hide the mobile overlay on desktop */
+  .mealplan-mobile-overlay {
+    display: none;
+  }
+
+  /* Show the two-column layout on desktop */
+  .mealplan-two-column {
+    display: flex;
+    flex-direction: row;
+    height: 550px;
+    border-radius: 0; /* Remove border-radius if not desired on desktop */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .mealplan-column-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mealplan-column-content {
+    flex: 1;
+    background-color: white;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-end; /* Adjust as needed */
+    justify-content: center;
+  }
+
+  .mealplan-overlay-content {
+    position: static; /* Reset position for desktop */
+    height: auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+    background: none; /* Remove background overlay for desktop */
+    text-align: left;
+    color: black;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mealplan-overlay-content h3,
+  .mealplan-overlay-content h4,
+  .mealplan-overlay-content p {
+    color: #111 !important; /* Ensure text is dark on desktop */
+  }
+
+  .mealplan-feature-title {
+    font-size: 1.6rem;
+    margin-bottom: 3rem; /* Revert to desktop specific margin */
+    text-align: left;
+  }
+
+  .mealplan-features {
+    display: grid; /* Keep grid layout */
+    gap: 2rem;
+  }
+
+  .mealplan-feature-item {
+    display: flex; /* Keep flex layout */
+    gap: 0.8rem;
+  }
+
+  .mealplan-feature-icon {
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    background-color: #f3f4f6;
+    color: #1d1d1d;
+  }
+
+  .mealplan-feature-icon svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .mealplan-feature-text h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .mealplan-feature-text p {
+    font-size: 0.75rem;
+    color: #374151;
+  }
 }

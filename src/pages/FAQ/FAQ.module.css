@@ -1,84 +1,10 @@
 .faqContainer {
-  padding-top: 4rem;
-}
-
-.faqHero {
-  padding: 5rem 0;
-  background-color: black;
-  color: white;
-  text-align: center;
-}
-
-.faqHeroTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .faqHeroTitle {
-    font-size: 3.75rem;
-  }
-}
-
-.faqHeroSubtitle {
-  font-size: 1.25rem;
-  color: #d1d5db;
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
+  padding-top: 140px;
 }
 
 .faqContent {
   padding: 5rem 0;
   background-color: #f9fafb;
-}
-
-.faqSearchContainer {
-  margin-bottom: 3rem;
-}
-
-.faqSearch {
-  position: relative;
-}
-
-.faqSearchIcon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 1.25rem;
-  width: 1.25rem;
-  color: #9ca3af;
-}
-
-.faqSearchInput {
-  width: 100%;
-  padding-left: 3rem;
-  padding-right: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1.125rem;
-  transition: all 0.3s;
-}
-
-.faqSearchInput:focus {
-  outline: none;
-  border-color: black;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-}
-
-.faqCategory {
-  margin-bottom: 3rem;
-}
-
-.faqCategoryTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: black;
-  margin-bottom: 1.5rem;
 }
 
 .faqQuestions {
@@ -127,6 +53,17 @@
   flex-shrink: 0;
 }
 
+/* Smooth expand/collapse */
+.faqAnswerWrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faqAnswerWrapper.open {
+  max-height: 500px; /* large enough to fit content */
+}
+
 .faqAnswer {
   padding: 0 1.5rem 1rem 1.5rem;
 }
@@ -136,33 +73,13 @@
   line-height: 1.625;
 }
 
-.faqNoResults {
-  text-align: center;
-  padding: 3rem 0;
-}
-
-.faqNoResultsText {
-  color: #4b5563;
-  font-size: 1.125rem;
-  margin-bottom: 1rem;
-}
-
-.faqClearSearch {
-  color: black;
-  text-decoration: underline;
-  transition: text-decoration 0.3s;
-}
-
-.faqClearSearch:hover {
-  text-decoration: none;
-}
-
+/* Support Section */
 .faqSupport {
   background-color: white;
-  border-radius: 1rem;
   padding: 2rem;
   text-align: center;
   margin-top: 3rem;
+  border-radius: 1rem;
 }
 
 .faqSupportTitle {
@@ -181,12 +98,15 @@
   background-color: black;
   color: white;
   padding: 0.75rem 2rem;
-  border-radius: 9999px;
+  border-radius: 0;
   font-weight: 600;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
   display: inline-block;
 }
 
 .faqSupportButton:hover {
-  background-color: #1f2937;
+  background-color: transparent;
+  color: black;
+  border-color: black;
 }
