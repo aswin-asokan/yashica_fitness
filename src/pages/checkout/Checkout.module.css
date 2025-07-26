@@ -1,0 +1,123 @@
+.checkoutContainer {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  background-color: #f9fafb;
+}
+
+.checkoutGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* Default for small screens: single column (right on top, then left) */
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+/* Media query for larger screens (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+  .checkoutGrid {
+    grid-template-columns: 2fr 1fr; /* Revert to two columns for larger screens */
+  }
+}
+
+
+.leftColumn h2,
+.rightColumn h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.flexRow {
+  display: flex;
+  gap: 1rem;
+  /* Ensure inputs in flexRow also take full width on small screens */
+  flex-direction: column;
+}
+
+@media (min-width: 640px) { /* Adjust breakpoint as needed for flexRow */
+  .flexRow {
+    flex-direction: row; /* Revert to row for wider screens */
+  }
+}
+
+.payButton {
+  width: 100%;
+  background-color: #1d1d1d;
+  color: white;
+  padding: 1rem;
+  border-radius: 0;
+  font-weight: 600;
+  border: 1px solid black;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.payButton:hover {
+  background-color: transparent;
+  color: black;
+}
+
+.rightColumn {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* Order for small screens: right column (order summary) comes first */
+  order: -1; /* Puts this column above others when in a single column layout */
+}
+
+@media (min-width: 768px) {
+  .rightColumn {
+    order: unset; /* Remove explicit order for larger screens, let grid handle it */
+  }
+}
+
+.checkoutItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.itemDuration {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.itemPrice {
+  font-weight: 600;
+  color: black;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  border-top: 1px solid #d1d5db;
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+}
+
+.razorpayBox {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 2rem;
+}

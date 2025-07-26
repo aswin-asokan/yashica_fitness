@@ -1,6 +1,8 @@
+// src/components/ProgramsPreview/ProgramsPreview.tsx
+
 import { useNavigate } from "react-router-dom";
 import styles from "./ProgramsPreview.module.css";
-import { newPrograms } from "../data/programs";
+import { newPrograms } from "../data/programs"; // Assuming newPrograms is imported from here
 
 const ProgramsPreview = () => {
   const navigate = useNavigate();
@@ -14,7 +16,8 @@ const ProgramsPreview = () => {
             <div key={program.id} className={styles.programBlock}>
               <div
                 className={styles.card}
-                onClick={() => navigate(`/program/${program.id}`)}
+                // --- CHANGE THIS LINE ---
+                onClick={() => navigate(`/program/${program.slug}`)} // Use program.slug
               >
                 <h3 className={styles.duration}>
                   {program.packages[0].duration}

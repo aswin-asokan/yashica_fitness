@@ -2,6 +2,7 @@ export const newPrograms = [
   {
     id: 1,
     title: "Fat to Fit Program",
+    slug: "fat-to-fit-program",
     features: {
       card: [
         "individualised meal plans",
@@ -49,6 +50,7 @@ export const newPrograms = [
   {
     id: 2,
     title: "Muscle Hypertrophy Program",
+    slug: "muscle-hypertrophy-program",
     features: {
       card: [
       "1-1 coaching",
@@ -89,6 +91,7 @@ export const newPrograms = [
   {
     id: 3,
     title: "Athletic Performance",
+    slug: "athletic-performance",
     features: {
       card: [
       "spot & improve weak areas",
@@ -129,7 +132,8 @@ export const newPrograms = [
   {
     id: 4,
     title: "Women Specialisation Program",
-    features: {
+    slug: "women-specialisation-program",
+      features: {
       card: [
       "optimise mood",
       "diet plan (veg/non-veg)",

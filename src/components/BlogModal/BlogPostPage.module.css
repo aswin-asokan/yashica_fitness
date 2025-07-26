@@ -1,0 +1,307 @@
+.blogDetails {
+  display: flex;
+  flex-direction: column;
+  padding-top: 180px;
+}
+.blogContentContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Section 1 - Blog Info */
+.blogMeta {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.blogTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.blogExcerpt {
+  font-size: 1.05rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.blogHeader {
+  margin-bottom: 1.5rem;
+}
+
+.blogImage {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0; /* rectangle */
+}
+
+/* Content */
+.blogBody {
+  line-height: 1.8;
+  color: #374151;
+  font-size: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* This gap will apply between your new dynamic blocks */
+  margin-top: 2rem;
+}
+
+/*
+  The original .blogContent was for a single block of content with white-space: pre-line.
+  We are now rendering multiple content blocks. If you still have a single
+  content block somewhere using this, it's fine. Otherwise, the new specific
+  classes below take precedence for the main blog body.
+*/
+.blogContent {
+  /* You might not need this if all content is rendered via structured blocks */
+  white-space: pre-line;
+}
+
+.blogAuthor {
+  font-style: italic;
+  color: #6b7280;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* --- NEW DYNAMIC CONTENT STYLES --- */
+.blogContentParagraph {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #333; /* Adjusted slightly for better readability if desired */
+}
+
+.blogContentHeading2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 2rem; /* Space before new heading */
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.blogContentHeading3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+.blogContentHeading4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+  color: #333;
+}
+
+.blogContentList {
+  list-style-type: disc; /* Standard bullet points */
+  margin-left: 1.5rem; /* Indent lists */
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.blogContentList li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.exerciseSection {
+  background-color: #f9f9f9; /* Light background for exercise blocks */
+  border-left: 4px solid #000; /* A black left border */
+  padding: 1.5rem;
+  margin-bottom: 2rem; /* Space between exercise sections */
+  border-radius: 4px;
+}
+
+.exerciseBlock {
+  margin-bottom: 1.5rem; /* Space between individual exercises within the section */
+}
+
+.exerciseBlock:last-child {
+  margin-bottom: 0; /* No margin after the last exercise in a block */
+}
+
+.exerciseName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.exerciseDetail {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.exerciseDetail strong {
+  color: #000;
+}
+
+.notFound {
+  padding-top: 180px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Back Button for Not Found */
+.backButton {
+  background-color: black;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem; /* Added margin-top to separate from text */
+}
+
+.backButton:hover {
+  background-color: #1f2937;
+}
+/* --- END NEW DYNAMIC CONTENT STYLES --- */
+
+/* Section 2 - Read More */
+.readMoreSection {
+  margin-top: 4rem;
+  background-color: #1d1d1d;
+  padding: 4rem 1rem; /* This already provides 1rem side padding on all screens */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.readMoreTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.readMoreGrid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  /* Add max-width and margin auto for centering on large screens */
+  max-width: 800px; /* Adjust as needed to match your main content width */
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .readMoreGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.readMoreCard {
+  background-color: #2c2c2c;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.readMoreCard:hover {
+  transform: scale(1.02);
+}
+
+.readMoreImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.readMoreContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: white;
+}
+
+.readMoreCategory {
+  background-color: black;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  align-self: flex-start;
+}
+
+.readMoreCardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+
+.readMoreCardExcerpt {
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+.readMoreButton {
+  margin-top: auto;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  align-self: start;
+  transition: background-color 0.3s;
+}
+
+.readMoreButton:hover {
+  background-color: #f3f4f6;
+}
+
+/* Original Back Button (if used elsewhere on the page, keep) */
+/* The .backButton class within .notFound provides specific styling for that context */
+/*
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 3rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.backButton:hover {
+  background-color: #1f2937;
+}
+
+.backIcon {
+  width: 1rem;
+  height: 1rem;
+}
+*/

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import {
-  Dumbbell,
   Mail,
   Phone,
   MapPin,
@@ -17,9 +16,14 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <Dumbbell className="footer-logo-icon" />
+              <img
+                src="src/assets/black-bg.png" // Replace with your actual path
+                alt="Yashica Fitness Logo"
+                className="footer-logo-image"
+              />
               <span className="footer-logo-text">Yashica Fitness</span>
             </div>
+
             <p className="footer-description">
               Transform your body and mind with our personalized training
               programs. Your fitness journey starts here.

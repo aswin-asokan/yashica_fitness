@@ -130,19 +130,24 @@
 .mailme-button {
   background-color: black;
   color: white;
-  padding: 3.5vw 7vw; /* Scale padding */
-  border-radius: 9999px; /* Remains fully rounded */
+  padding: 3.5vw 7vw;
+  border-radius: 0; /* Rectangle style */
   font-weight: 600;
-  font-size: 4.2vw; /* Scale font size */
-  transition: all 0.3s;
+  font-size: 4.2vw;
   display: inline-flex;
   align-items: center;
-  gap: 2.5vw; /* Scale gap */
+  justify-content: center;
+  gap: 2.5vw;
+  width: 100%;
+  border: 1px solid black;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .mailme-button:hover {
-  background-color: #1f2937;
+  background-color: transparent;
+  color: black;
 }
+
 
 .mailme-button-icon {
   height: 4.5vw; /* Scale icon size */

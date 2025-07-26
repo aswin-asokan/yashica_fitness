@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { X, Plus, Minus, Trash2 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import styles from "./Cart.module.css";
+import { useNavigate } from "react-router-dom";
 
 const CartDrawer = ({
   isOpen,
@@ -37,7 +38,7 @@ const CartDrawer = ({
       onClose(); // notify parent
     }, 300); // matches slideOut animation duration
   };
-
+  const navigate = useNavigate();
   if (!visible) return null;
 
   return (
@@ -123,7 +124,16 @@ const CartDrawer = ({
         <hr />
         <div className={styles.checkout}>
           <h3>Total: ₹{getCartTotal()}</h3>
-          <button className={styles.checkoutBtn}>Checkout</button>
+          <button
+            className={styles.checkoutBtn}
+            onClick={() => {
+              // Close the cart before navigating
+              handleClose();
+              navigate("/checkout");
+            }}
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </>

@@ -1,31 +1,49 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { Check } from "lucide-react";
 import styles from "./ProgramDetails.module.css";
-import { newPrograms } from "../data/programs";
-import Questions from "../Questions/Questions";
+import { newPrograms } from "../../components/data/programs"; // Ensure this path is correct based on your project structure
+import Questions from "../Questions/Questions"; // Adjust path if needed
 import { useCart } from "../../context/CartContext";
 
 const ProgramDetails = () => {
-  const { id } = useParams();
+  // 1. CHANGE: Get 'slug' from useParams instead of 'id'
+  const { slug } = useParams<{ slug: string }>(); // Specify type for TypeScript
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
-  const program = newPrograms.find((p) => p.id === Number(id));
+  // 2. CHANGE: Find the program using 'slug' instead of 'id'
+  const program = newPrograms.find((p) => p.slug === slug);
+
   const [selectedPackageIndex, setSelectedPackageIndex] = useState(0);
 
-  if (!program) return <div>Program not found</div>;
+  if (!program) {
+    // Handle case where program is not found (e.g., redirect to 404 or programs list)
+    return (
+      <div className="pt-[180px] px-4 text-center">
+        <p className="text-xl text-red-500 mb-4">Program not found.</p>
+        <button
+          className="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors"
+          onClick={() => navigate("/programs")}
+        >
+          Browse All Programs
+        </button>
+      </div>
+    );
+  }
 
   const selectedPackage = program.packages[selectedPackageIndex];
+
+  // ✅ Defined cleanPrice globally in the component
+  const cleanPrice = parseFloat(
+    selectedPackage.price.replace(/Rs\.\s?/, "").replace(/,/g, "")
+  );
 
   const handleAddToCart = () => {
     if (!program || !selectedPackage) return;
 
-    const cleanPrice = parseFloat(
-      selectedPackage.price.replace(/Rs\.\s?/, "").replace(/,/g, "")
-    );
-
     addToCart({
-      id: program.id,
+      id: program.id, // Keep using program.id for cart management if your CartContext expects it
       name: program.title,
       price: cleanPrice,
       image: program.image,
@@ -55,7 +73,19 @@ const ProgramDetails = () => {
                 ))}
               </ul>
 
-              <img src={`/${program.image}`} className={styles.image} />
+              {/* Ensure image path is correct. If 'src/assets/images/' is public,
+                  it should be accessed directly or via import if using a bundler.
+                  `/${program.image}` assumes it's relative to the public root.
+                  If 'program.image' already includes 'src/assets/images/', you might need to adjust.
+                  Given your provided `newPrograms` has `src/assets/images/pngwing.com.png`,
+                  it's likely a relative path from the project root after bundling.
+                  Let's assume the previous `src/assets/images/` was an example and it resolves correctly.
+              */}
+              <img
+                src={`/${program.image}`}
+                className={styles.image}
+                alt={program.title}
+              />
             </div>
           </div>
 
@@ -92,6 +122,7 @@ const ProgramDetails = () => {
               What does this program include?
             </h3>
             <ul className={styles.includedList}>
+              {/* Combine card features and details features */}
               {[...program.features.card, ...program.features.details].map(
                 (feature, index) => (
                   <li key={index}>
@@ -112,12 +143,30 @@ const ProgramDetails = () => {
               <button className={styles.addToCart} onClick={handleAddToCart}>
                 Add to Cart
               </button>
-              <button className={styles.buyNow}>Buy it Now</button>
+
+              <button
+                className={styles.buyNow}
+                onClick={() =>
+                  navigate("/checkout", {
+                    state: {
+                      item: {
+                        id: program.id, // Keep using program.id for checkout state if needed
+                        title: program.title,
+                        price: cleanPrice,
+                        duration: selectedPackage.duration,
+                      },
+                    },
+                  })
+                }
+              >
+                Buy it Now
+              </button>
             </div>
           </div>
         </section>
       </div>
-      <hr className="mt-12"></hr>
+
+      <hr className="mt-12" />
       <Questions />
     </>
   );

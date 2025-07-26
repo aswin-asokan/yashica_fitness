@@ -1,3 +1,5 @@
+// App.tsx
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 
@@ -7,9 +9,11 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import FAQ from "./pages/FAQ/FAQ";
 import Blog from "./pages/Blog/Blog";
-import ProgramDetails from "./components/ProgramDetails/ProgramDetails";
+import ProgramDetails from "./components/ProgramDetails/ProgramDetails"; // This component needs updating next
 import ScrollToTop from "./utils/ScrollToTop.";
 import AllPrograms from "./pages/Programs/Programs";
+import BlogDetails from "./components/BlogModal/BlogPost";
+import Checkout from "./pages/checkout/checkout";
 
 function App() {
   return (
@@ -23,8 +27,12 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogDetails />} />
             <Route path="/programs" element={<AllPrograms />} />
-            <Route path="/program/:id" element={<ProgramDetails />} />
+            {/* --- CHANGE THIS LINE --- */}
+            <Route path="/program/:slug" element={<ProgramDetails />} />{" "}
+            {/* Changed from :id to :slug */}
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
           <Footer />
         </div>

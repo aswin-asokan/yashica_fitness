@@ -31,15 +31,6 @@ const Contact = () => {
 
   return (
     <div className={styles.contactContainer}>
-      <section className={styles.contactHero}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className={styles.contactHeroTitle}>Get in Touch</h1>
-          <p className={styles.contactHeroSubtitle}>
-            Ready to transform your life? Let's start the conversation today.
-          </p>
-        </div>
-      </section>
-
       <section className={styles.contactContent}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={styles.contactGrid}>
@@ -75,7 +66,7 @@ const Contact = () => {
                   </div>
                   <div className={styles.contactInfoContent}>
                     <h3>Address</h3>
-                    <p>Fitness street</p>
+                    <p>Fitness Street</p>
                     <p>Health City, P O 682101</p>
                   </div>
                 </div>

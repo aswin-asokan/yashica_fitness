@@ -15,7 +15,7 @@
 .faqItem {
   background-color: white;
   border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  border-radius: 0;
   overflow: hidden;
   transition: box-shadow 0.3s;
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { newPrograms } from "../../components/data/programs";
+import { newPrograms } from "../../components/data/programs"; // Ensure this path is correct
 import { useCart } from "../../context/CartContext";
 import styles from "./Programs.module.css";
 
@@ -66,7 +66,8 @@ const AllPrograms = () => {
             <div key={program.id} className={styles.programBlock}>
               <div
                 className={styles.card}
-                onClick={() => navigate(`/program/${program.id}`)}
+                // --- UPDATE 1: Navigate using program.slug ---
+                onClick={() => navigate(`/program/${program.slug}`)}
               >
                 <h3 className={styles.duration}>
                   {program.packages[0].duration}
@@ -105,7 +106,8 @@ const AllPrograms = () => {
                 <div className="mt-2">
                   {hasMultiplePackages ? (
                     <button
-                      onClick={() => navigate(`/program/${program.id}`)}
+                      // --- UPDATE 2: Navigate using program.slug ---
+                      onClick={() => navigate(`/program/${program.slug}`)}
                       className={`${styles.buttonStyle} ${styles.cardButton}`}
                     >
                       Select Options
@@ -114,7 +116,7 @@ const AllPrograms = () => {
                     <button
                       onClick={() =>
                         addToCart({
-                          id: program.id,
+                          id: program.id, // Keep using program.id for cart logic if your CartContext expects it
                           name: program.title,
                           price: cleanPrice(basePrice),
                           image: program.image,

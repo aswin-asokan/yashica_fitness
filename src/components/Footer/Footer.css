@@ -29,10 +29,12 @@
   margin-bottom: 1rem;
 }
 
-.footer-logo-icon {
-  width: 2rem;
-  height: 2rem;
+.footer-logo-image {
+  width: 2.5rem;
+  height: auto;
+  object-fit: contain;
 }
+
 
 .footer-logo-text {
   font-size: 1.25rem;
